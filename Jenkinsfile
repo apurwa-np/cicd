@@ -35,7 +35,16 @@ pipeline {
     }
 }
 
+stage('Cleanup') {
+    steps {
+        script {
+            // Remove dangling images
+            sh 'docker image prune -f'
 
+ 
+        }
+    }
+}
 
         
         stage('Build & Push') {
